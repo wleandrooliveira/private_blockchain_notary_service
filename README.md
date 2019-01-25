@@ -5,7 +5,7 @@ Web service for a simple private Blockchain implemented using `Node.js` and `Exp
 Follow this step below to deployment and test this project.
 
 
-![Alt text](https://github.com/wleandrooliveira/private_blockchain_rest_api/blob/master/src/images/shutterstock_749922058.jpg)
+![Alt text](https://github.com/wleandrooliveira/private_blockchain_notary_service/blob/master/src/images/shutterstock_749922058.jpg)
 
 # Get started
 
@@ -47,7 +47,7 @@ http://localhost:8000/block/0
 **Required Parameters**: ```{ "address:" "bc1qm0kfc574vg4zk5wc5yuae3r9whpm6dd7w4vxxr" } ```
 
 
-![Alt text](https://github.com/wleandrooliveira/private_blockchain_rest_api/blob/master/src/images/requestValidadtion.PNG)
+![Alt text](https://github.com/wleandrooliveira/private_blockchain_notary_service/blob/master/src/images/requestValidadtion.PNG)
 
 
 **Method**: POST
@@ -61,9 +61,9 @@ http://localhost:8000/block/0
 	"signature":"IDm1YeogK5p3s3KHjbiyZTHJGK8x66unrD1UyuHa8kntBChN6DhUZbLfYyYIsfEiSjtroLhY1K/syL7FdgTmzUw="
 }
 ```
-![Alt text](https://github.com/wleandrooliveira/private_blockchain_rest_api/blob/master/src/images/message_signature.PNG)
+![Alt text](https://github.com/wleandrooliveira/private_blockchain_notary_service/blob/master/src/images/message_signature.PNG)
 
-![Alt text](https://github.com/wleandrooliveira/private_blockchain_rest_api/blob/master/src/images/signatureElectrum.PNG)
+![Alt text](https://github.com/wleandrooliveira/private_blockchain_notary_service/master/src/images/signatureElectrum.PNG)
 
 Example:
 ```
