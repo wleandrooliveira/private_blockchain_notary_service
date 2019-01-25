@@ -61,9 +61,12 @@ http://localhost:8000/block/0
 	"signature":"IDm1YeogK5p3s3KHjbiyZTHJGK8x66unrD1UyuHa8kntBChN6DhUZbLfYyYIsfEiSjtroLhY1K/syL7FdgTmzUw="
 }
 ```
+Sign Message by Electrum
+![Alt text](https://github.com/wleandrooliveira/private_blockchain_notary_service/blob/master/src/images/signatureElectrum.PNG)
+
 ![Alt text](https://github.com/wleandrooliveira/private_blockchain_notary_service/blob/master/src/images/message_signature.PNG)
 
-![Alt text](https://github.com/wleandrooliveira/private_blockchain_notary_service/blob/master/src/images/signatureElectrum.PNG)
+
 
 Example:
 ```
