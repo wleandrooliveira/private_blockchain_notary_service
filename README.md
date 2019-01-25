@@ -28,6 +28,7 @@ when run node server.js by first time.
 ```
 
 # API Endpoint 
+
 In this this project i used postman to make a test request.
 [Postman](https://www.getpostman.com) is a powerful tool used to test web services. It was developed for sending HTTP requests in a simple and quick way.
 
@@ -41,7 +42,7 @@ http://localhost:8000/block/0
 
 **Method**: POST
 
-**URL**: http://localhost:8000/requestValidation
+**URL**: `http://localhost:8000/requestValidation`
 
 
 
