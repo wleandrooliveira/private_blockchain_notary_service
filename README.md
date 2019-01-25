@@ -44,14 +44,26 @@ http://localhost:8000/block/0
 
 **URL**: ```http://localhost:8000/requestValidation```
 
+**Required Parameters**: ```{ "address:" "bc1qm0kfc574vg4zk5wc5yuae3r9whpm6dd7w4vxxr" } ```
 
 
-![Alt text](https://github.com/wleandrooliveira/private_blockchain_rest_api/blob/master/src/images/getblock_genesis.PNG)
+![Alt text](https://github.com/wleandrooliveira/private_blockchain_rest_api/blob/master/src/images/requestValidadtion.PNG)
 
 
-**Method**: GET
+**Method**: POST
 
-**URL**: `/block/:blockHeigh_nonexistentt`
+**URL**: ```http://localhost:8000/message-signature/validate```
+
+**Required Parameters**:
+```
+{
+	"address":"bc1qm0kfc574vg4zk5wc5yuae3r9whpm6dd7w4vxxr",
+	"signature":"IDm1YeogK5p3s3KHjbiyZTHJGK8x66unrD1UyuHa8kntBChN6DhUZbLfYyYIsfEiSjtroLhY1K/syL7FdgTmzUw="
+}
+```
+![Alt text](https://github.com/wleandrooliveira/private_blockchain_rest_api/blob/master/src/images/message_signature.PNG)
+
+![Alt text](https://github.com/wleandrooliveira/private_blockchain_rest_api/blob/master/src/images/message_signature.PNG)
 
 Example:
 ```
