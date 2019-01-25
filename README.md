@@ -111,6 +111,17 @@ http://localhost:8000/block/0
 
 ![Alt text](https://github.com/wleandrooliveira/private_blockchain_notary_service/blob/master/src/images/getblockbyhash.PNG)
 
+## Get Block by Height
+
+**Method**: GET
+
+**URL**: ```http://localhost:8000/block/:height```
+
+**Required Parameters**:```http://localhost:8000/block/1```
+
+
+![Alt text](https://github.com/wleandrooliveira/private_blockchain_notary_service/blob/master/src/images/getblockbyheight.PNG)
+
 
 # License
 
