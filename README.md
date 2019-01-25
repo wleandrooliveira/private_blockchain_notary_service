@@ -23,9 +23,7 @@ $ npm install
 3) Run application
 
 ```
-$ node server.js
-when run node server.js by first time.
-```
+$ npm run dev
 
 # API Endpoint 
 
@@ -122,7 +120,3 @@ http://localhost:8000/block/0
 
 ![Alt text](https://github.com/wleandrooliveira/private_blockchain_notary_service/blob/master/src/images/getblockbyheight.PNG)
 
-
-# License
-
-Copyright (c) 2019 Wanderson Leandro de Oliveira
