@@ -87,7 +87,7 @@ http://localhost:8000/block/0
 }
 
 ```
-![Alt text](https://github.com/wleandrooliveira/private_blockchain_notary_service/blob/master/src/images/message_signature.PNG)
+![Alt text](https://github.com/wleandrooliveira/private_blockchain_notary_service/blob/master/src/images/createBlock.PNG)
 
 
 # License
