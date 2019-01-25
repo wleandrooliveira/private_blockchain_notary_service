@@ -24,6 +24,7 @@ $ npm install
 
 ```
 $ npm run dev
+```
 
 # API Endpoint 
 
