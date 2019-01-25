@@ -93,12 +93,23 @@ http://localhost:8000/block/0
 
 **Method**: GET
 
-**URL**: ```http://localhost:8000/stars/address:address```
+**URL**: ```http://localhost:8000/stars/hash:hash```
 
 **Required Parameters**:```http://localhost:8000/stars/address:bc1qm0kfc574vg4zk5wc5yuae3r9whpm6dd7w4vxxr```
 
 
 ![Alt text](https://github.com/wleandrooliveira/private_blockchain_notary_service/blob/master/src/images/getblockbyAdress.PNG)
+
+## Get Block by Hash
+
+**Method**: GET
+
+**URL**: ```http://localhost:8000/stars/hash:hash```
+
+**Required Parameters**:```http://localhost:8000/stars/hash:17cff90cf9110d6cf1ade5ba5eb98d824d244f0221ba5d4b9458f9b660a6925c```
+
+
+![Alt text](https://github.com/wleandrooliveira/private_blockchain_notary_service/blob/master/src/images/getblockbyhash.PNG)
 
 
 # License
