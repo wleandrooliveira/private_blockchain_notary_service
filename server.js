@@ -7,8 +7,8 @@ const Block = require('./src/app/Block')
 const Blockchain = require('./src/app/BlockChain')
 const config = require('./src/config/config')
 const RegisterStarValidation = require('./src/app/StarRegisterValidation')
-//const dataStorage = require('./src/app/DataStorage');
-//const data = new dataStorage();
+const dataStorage = require('./src/app/DataStorage');
+const dataBlock = new dataStorage();
 
 // Logging incoming requests
 app.use(morgan('combined'));
@@ -93,7 +93,8 @@ app.post('/block', [validateNewStarRequest], async (req, res) => {
     con: star.con,
   };
 
-  let add = await Blockchain.addBlock(new Block(req.body));
+  let add = await dataBlock.addBlockToDATA(new Block(req.body));
+  //let add = await Blockchain.addBlock(new Block(req.body));
   registerStarValidation.invalidate(req.body.address);
   res.json(add);
 });
