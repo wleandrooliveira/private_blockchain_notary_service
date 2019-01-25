@@ -89,6 +89,17 @@ http://localhost:8000/block/0
 ```
 ![Alt text](https://github.com/wleandrooliveira/private_blockchain_notary_service/blob/master/src/images/createBlock.PNG)
 
+## Get Block by Address
+
+**Method**: GET
+
+**URL**: ```http://localhost:8000/stars/address:address```
+
+**Required Parameters**:```http://localhost:8000/stars/address:bc1qm0kfc574vg4zk5wc5yuae3r9whpm6dd7w4vxxr```
+
+
+![Alt text](https://github.com/wleandrooliveira/private_blockchain_notary_service/blob/master/src/images/getblockbyAdress.PNG)
+
 
 # License
 
