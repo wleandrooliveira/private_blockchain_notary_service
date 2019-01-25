@@ -27,16 +27,7 @@ $ node server.js
 when run node server.js by first time.
 ```
 
-# RESTful API Endpoint 
-
-## Test Endpoints
-
-## Get Block
-
-**Method**: GET
-
-**URL**: `/block/:blockHeight`
-
+# API Endpoint 
 In this this project i used postman to make a test request.
 [Postman](https://www.getpostman.com) is a powerful tool used to test web services. It was developed for sending HTTP requests in a simple and quick way.
 
@@ -44,6 +35,15 @@ Example:
 ```
 http://localhost:8000/block/0
 ```
+## Test Endpoints
+
+## Request Validation - initiates a request for validation
+
+**Method**: POST
+
+**URL**: http://localhost:8000/requestValidation
+
+
 
 ![Alt text](https://github.com/wleandrooliveira/private_blockchain_rest_api/blob/master/src/images/getblock_genesis.PNG)
 
