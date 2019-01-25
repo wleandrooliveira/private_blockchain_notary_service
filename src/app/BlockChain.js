@@ -17,42 +17,54 @@ class BlockChain {
       })
     }
     async addBlock(newBlock) {
-      const height = parseInt(await this.getBlockHeight())
-  
-      newBlock.height = height + 1
-      newBlock.time = new Date().getTime().toString().slice(0, -3)
-  
+      // Block height
+      const height = parseInt(await datastorage.getBlockByHeight());
+      newBlock.height = height + 1;
+      // UTC timestamp
+      newBlock.time = new Date()
+        .getTime()
+        .toString()
+        .slice(0, -3);
+      // previous block hash
       if (newBlock.height > 0) {
-        const prevBlock = await this.getBlock(height)
-        newBlock.previousBlockHash = prevBlock.hash
-        console.log(`Previous hash: ${newBlock.previousBlockHash}`)
+        const previousBlockHeight = newBlock.height - 1;
+        const previousBlock = await this.getBlock(previousBlockHeight);
+        newBlock.previousBlockHash = previousBlock.hash;
       }
-  
-      newBlock.hash = SHA256(JSON.stringify(newBlock)).toString()
-      console.log(`New hash: ${newBlock.hash}`)
-      
-      await this.datastorage.addBlockToDATA(newBlock.height, JSON.stringify(newBlock))
+      // Block hash with SHA256 using newBlock and converting to a string
+      newBlock.hash = SHA256(JSON.stringify(newBlock)).toString();
+      // Adding block object to chain
+      await this.datastorage.addBlockToDATA(newBlock.height, JSON.stringify(newBlock));
+      //console.log(newBlock)
+      return newBlock;
     }
 
-     //Empty Blockchain
-    async deleteAllBlocks() {
-      let self = this;
-      let i = 0;
-      self.datastorage.createReadStream().on('data', function (data){
-        self.datastorage.deleteBlockFromDATA(i);
-        console.log('Deleted Block#', i)
-        i++;
-      }).on('error', function (err) {
-        return console.log('Unable to read data stream!', err)
-      });
+    // get block
+    async getBlock(blockHeight) {
+      // return object as a single string
+      let block = await this.datastorage.getBlockFromDATA(blockHeight);
+      block = JSON.parse(block);
+      if (blockHeight > 0) {
+        block.body.star.storyDecoded = new Buffer(
+          block.body.star.story,
+          'hex',
+        ).toString();
+      }
+      return block;
     }
 
     async getBlockHeight() {
       return await this.datastorage.getBlockHeightFromDATA()
     }
-  
-    async getBlock(blockHeight) {
-      return JSON.parse(await this.datastorage.getBlockFromDATA(blockHeight))
+
+    // New Functions
+
+    async getBlockByAddress(address) {
+      return await this.datastorage.getBlockByAddressData(address);
+    }
+
+    async getBlockByHash(hash) {
+      return await this.datastorage.getBlockByHashData(hash);
     }
   
     // validate block

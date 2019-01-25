@@ -1,5 +1,5 @@
 const level = require('level');
-const chainDB = './chaindata';
+const chainDB = './data/chain';
 
 class DataStorage {
   // Declaring the class constructor
@@ -20,29 +20,23 @@ class DataStorage {
         })
       })
     }
-    //Deleting Block by key
-    deleteBlockFromDATA(key) {
-      let self = this;
-      return new Promise((resolve, reject) => {
-        self.db.del(key, (error) =>{
-          if(error) {
-            reject(error)
-            return console.log('Error deleting Block #' + key, err);
-          }
-          resolve(value)
-        })
-      })
-    }
 
   getBlockFromDATA(key) {
     let self = this;
     return new Promise((resolve, reject) => {
       self.db.get(key, (error, value) => {
-        if (error) {
-          reject(error)
+        if (value === undefined) {
+          return reject('Not found')
+        } else if (error) {
+          return reject(error)
+        }
+        value = JSON.parse(value)
+
+        if (parseInt(key) > 0){
+          value.body.star.storyDecoded = new Buffer(value.body.star.story, 'hex').toString()
         }
 
-        resolve(value)
+        return resolve(value)
 
       })
     })
@@ -62,6 +56,69 @@ class DataStorage {
       })
     })
   }
+
+  // Get block by address
+  getBlockByAddressData(address) {
+    const blocks = [];
+    let block;
+
+    return new Promise((resolve, reject) => {
+      let self = this;
+      self.db
+        .createReadStream()
+        .on('data', data => {
+          block = JSON.parse(data.value);
+          if (block.body.address === address) {
+            block.body.star.storyDecoded = new Buffer(
+              block.body.star.story,
+              'hex',
+            ).toString();
+            blocks.push(block);
+          }
+        })
+        .on('error', error => {
+          return reject(error);
+        })
+        .on('close', () => {
+          return resolve(blocks);
+        });
+    });
+  }
+
+  isGenesis(key) {
+    return parseInt(key) === 0
+  }
+
+  // Get block by Hash
+  getBlockByHashData(hash) {
+    let block;
+    let self = this;
+    return new Promise((resolve, reject) => {
+      self.db
+        .createReadStream()
+        .on('data', data => {
+          block = JSON.parse(data.value);
+          if (block.hash === hash) {
+            console.log(data.key);
+            if (data.key != 0) {
+              block.body.star.storyDecoded = new Buffer(
+                block.body.star.story,'hex'
+              ).toString();
+              return resolve(block);
+            } else {
+              return resolve(block);
+            }
+          }
+        })
+        .on('error', error => {
+          return reject(error);
+        })
+        .on('close', () => {
+          return reject('Not found')
+        });
+    });
+  }
+  
 }
 
 module.exports = DataStorage;
